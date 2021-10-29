@@ -1,0 +1,224 @@
+{
+  "pokemon": [
+    {
+      "id": "bulbasaur",
+      "name": "Bulbasaur",
+      "type": [
+        "grass",
+        "poison"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "base_experience": 64
+    },
+    {
+      "id": "ivysaur",
+      "name": "Ivysaur",
+      "type": [
+        "grass",
+        "poison"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
+      "base_experience": 142
+    },
+    {
+      "id": "venusaur",
+      "name": "Venusaur",
+      "type": [
+        "grass",
+        "poison"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
+      "base_experience": 236
+    },
+    {
+      "id": "charmander",
+      "name": "Charmander",
+      "type": [
+        "fire"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      "base_experience": 62
+    },
+    {
+      "id": "charmeleon",
+      "name": "Charmeleon",
+      "type": [
+        "fire"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
+      "base_experience": 142
+    },
+    {
+      "id": "charizard",
+      "name": "Charizard",
+      "type": [
+        "fire",
+        "flying"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+      "base_experience": 240
+    },
+    {
+      "id": "squirtle",
+      "name": "Squirtle",
+      "type": [
+        "water"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+      "base_experience": 63
+    },
+    {
+      "id": "wartortle",
+      "name": "Wartortle",
+      "type": [
+        "water"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
+      "base_experience": 142
+    },
+    {
+      "id": "blastoise",
+      "name": "Blastoise",
+      "type": [
+        "water"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+      "base_experience": 239
+    },
+    {
+      "id": "caterpie",
+      "name": "Caterpie",
+      "type": [
+        "bug"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png",
+      "base_experience": 39
+    },
+    {
+      "id": "metapod",
+      "name": "Metapod",
+      "type": [
+        "bug"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/11.png",
+      "base_experience": 72
+    },
+    {
+      "id": "butterfree",
+      "name": "Butterfree",
+      "type": [
+        "bug",
+        "flying"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png",
+      "base_experience": 178
+    },
+    {
+      "id": "weedle",
+      "name": "Weedle",
+      "type": [
+        "bug",
+        "poison"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/13.png",
+      "base_experience": 39
+    },
+    {
+      "id": "kakuna",
+      "name": "Kakuna",
+      "type": [
+        "bug",
+        "poison"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/14.png",
+      "base_experience": 72
+    },
+    {
+      "id": "beedrill",
+      "name": "Beedrill",
+      "type": [
+        "bug",
+        "poison"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png",
+      "base_experience": 178
+    },
+    {
+      "id": "pidgey",
+      "name": "Pidgey",
+      "type": [
+        "normal",
+        "flying"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/16.png",
+      "base_experience": 50
+    },
+    {
+      "id": "pidgeotto",
+      "name": "Pidgeotto",
+      "type": [
+        "normal",
+        "flying"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png",
+      "base_experience": 122
+    },
+    {
+      "id": "pidgeot",
+      "name": "Pidgeot",
+      "type": [
+        "normal",
+        "flying"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png",
+      "base_experience": 216
+    },
+    {
+      "id": "rattata",
+      "name": "Rattata",
+      "type": [
+        "normal"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/19.png",
+      "base_experience": 51
+    },
+    {
+      "id": "raticate",
+      "name": "Raticate",
+      "type": [
+        "normal"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png",
+      "base_experience": 142
+    },
+    {
+      "id": "spearow",
+      "name": "Spearow",
+      "type": [
+        "normal",
+        "flying"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/21.png",
+      "base_experience": 50
+    },
+    {
+      "id": "fearow",
+      "name": "Fearow",
+      "type": [
+        "normal",
+        "flying"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/22.png",
+      "base_experience": 140
+    },
+    {
+      "id": "ekans",
+      "name": "Ekans",
+      "type": [
+        "poison"
+      ],
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png",
+      "base_experience": 58
+    }
+  ]
+}
