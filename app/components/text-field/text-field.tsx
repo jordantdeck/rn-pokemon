@@ -1,22 +1,22 @@
 import React from "react"
 import { StyleProp, TextInput, TextInputProps, TextStyle, View, ViewStyle } from "react-native"
-import { color, spacing, typography } from "../../theme"
+import { TStyle, useTheme, VStyle } from "../../context/theme"
 import { translate, TxKeyPath } from "../../i18n"
 import { Text } from "../text/text"
 
 // the base styling for the container
-const CONTAINER: ViewStyle = {
+const CONTAINER: VStyle = ({spacing}) => ({
   paddingVertical: spacing[3],
-}
+})
 
 // the base styling for the TextInput
-const INPUT: TextStyle = {
+const INPUT: TStyle = ({typography, color}) => ({
   fontFamily: typography.primary,
   color: color.text,
   minHeight: 44,
   fontSize: 18,
-  backgroundColor: color.palette.white,
-}
+  backgroundColor: color.text,
+})
 
 // currently we have no presets, but that changes quickly when you build your app.
 const PRESETS: { [name: string]: ViewStyle } = {
@@ -78,8 +78,11 @@ export function TextField(props: TextFieldProps) {
     ...rest
   } = props
 
-  const containerStyles = [CONTAINER, PRESETS[preset], styleOverride]
-  const inputStyles = [INPUT, inputStyleOverride]
+  const {theme} = useTheme()
+  const {color} = theme
+
+  const containerStyles = [CONTAINER(theme), PRESETS[preset], styleOverride]
+  const inputStyles = [INPUT(theme), inputStyleOverride]
   const actualPlaceholder = placeholderTx ? translate(placeholderTx) : placeholder
 
   return (
@@ -87,7 +90,7 @@ export function TextField(props: TextFieldProps) {
       <Text preset="fieldLabel" tx={labelTx} text={label} />
       <TextInput
         placeholder={actualPlaceholder}
-        placeholderTextColor={color.palette.lighterGrey}
+        placeholderTextColor={color.dim}
         underlineColorAndroid={color.transparent}
         {...rest}
         style={inputStyles}

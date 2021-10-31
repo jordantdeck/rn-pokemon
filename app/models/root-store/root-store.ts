@@ -9,10 +9,14 @@ const pokemonData = require("./pokemon-data.json")
 // prettier-ignore
 export const RootStoreModel = types.model("RootStore").props({
   characterStore: types.optional(CharacterStoreModel, {} as any),
-  pokemon: types.array(PokemonModel)
+  pokemon: types.array(PokemonModel),
+  currentPokemon: types.maybe(types.reference(PokemonModel))
 }).actions(self => ({
   afterCreate() { 
     self.pokemon = pokemonData.pokemon
+  },
+  setPokemon(pokemon) {
+    self.currentPokemon = pokemon
   }
 }))
 

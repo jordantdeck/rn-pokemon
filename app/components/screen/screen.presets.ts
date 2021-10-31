@@ -1,6 +1,5 @@
 import { ViewStyle } from "react-native"
-import { color } from "../../theme"
-
+import { Theme } from "../../context/theme"
 /**
  * All screen keyboard offsets.
  */
@@ -16,7 +15,7 @@ export type KeyboardOffsets = keyof typeof offsets
 /**
  * All the variations of screens.
  */
-export const presets = {
+export const presets: (theme: Theme) => Record<ScreenPresets, Record<string, ViewStyle>> = ({color}) => ({
   /**
    * No scrolling. Suitable for full-screen carousels and components
    * which have built-in scrolling like FlatList.
@@ -26,13 +25,13 @@ export const presets = {
       backgroundColor: color.background,
       flex: 1,
       height: "100%",
-    } as ViewStyle,
+    },
     inner: {
       justifyContent: "flex-start",
       alignItems: "stretch",
       height: "100%",
       width: "100%",
-    } as ViewStyle,
+    },
   },
 
   /**
@@ -45,22 +44,22 @@ export const presets = {
       backgroundColor: color.background,
       flex: 1,
       height: "100%",
-    } as ViewStyle,
-    inner: { justifyContent: "flex-start", alignItems: "stretch" } as ViewStyle,
+    },
+    inner: { justifyContent: "flex-start", alignItems: "stretch" },
   },
-}
+})
 
 /**
  * The variations of screens.
  */
-export type ScreenPresets = keyof typeof presets
+export type ScreenPresets = "fixed" | "scroll"
 
 /**
  * Is this preset a non-scrolling one?
  *
  * @param preset The preset to check
  */
-export function isNonScrolling(preset?: ScreenPresets) {
+export function isNonScrolling(theme: Theme, preset?: ScreenPresets) {
   // any of these things will make you scroll
-  return !preset || !presets[preset] || preset === "fixed"
+  return !preset || !presets(theme)[preset] || preset === "fixed"
 }

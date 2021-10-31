@@ -1,6 +1,6 @@
 import React from "react"
 import { ViewStyle, Animated, Easing, TouchableWithoutFeedback } from "react-native"
-import { color } from "../../theme"
+import { useTheme, VStyle } from "../../context/theme"
 import { SwitchProps } from "./switch.props"
 
 // dimensions
@@ -12,25 +12,25 @@ const ON_POSITION = WIDTH - THUMB_SIZE - MARGIN
 const BORDER_RADIUS = (THUMB_SIZE * 3) / 4
 
 // colors
-const ON_COLOR = color.primary
-const OFF_COLOR = color.palette.offWhite
-const BORDER_ON_COLOR = ON_COLOR
+const ON_COLOR = ({color}) => color.primary
+const OFF_COLOR = ({color}) => color.palette.offWhite
+const BORDER_ON_COLOR = ({color}) => color.primary
 const BORDER_OFF_COLOR = "rgba(0, 0, 0, 0.1)"
 
 // animation
 const DURATION = 250
 
 // the track always has these props
-const TRACK = {
+const TRACK: VStyle = ({color}) => ({
   height: THUMB_SIZE + MARGIN,
   width: WIDTH,
   borderRadius: BORDER_RADIUS,
   borderWidth: MARGIN / 2,
   backgroundColor: color.background,
-}
+})
 
 // the thumb always has these props
-const THUMB: ViewStyle = {
+const THUMB: VStyle = ({color}) => ({
   position: "absolute",
   width: THUMB_SIZE,
   height: THUMB_SIZE,
@@ -43,11 +43,12 @@ const THUMB: ViewStyle = {
   shadowOpacity: 1,
   shadowRadius: 2,
   elevation: 2,
-}
+})
 
 const makeAnimatedValue = (switchOn) => new Animated.Value(switchOn ? 1 : 0)
 
 export function Switch(props: SwitchProps) {
+  const {theme} = useTheme()
   const [timer] = React.useState<Animated.Value>(makeAnimatedValue(props.value))
   const startAnimation = React.useMemo(
     () => (newValue: boolean) => {
@@ -88,16 +89,16 @@ export function Switch(props: SwitchProps) {
   const style = props.style
 
   const trackStyle = [
-    TRACK,
+    TRACK(theme),
     {
-      backgroundColor: props.value ? ON_COLOR : OFF_COLOR,
-      borderColor: props.value ? BORDER_ON_COLOR : BORDER_OFF_COLOR,
+      backgroundColor: props.value ? ON_COLOR(theme) : OFF_COLOR(theme),
+      borderColor: props.value ? BORDER_ON_COLOR(theme) : BORDER_OFF_COLOR,
     },
     props.value ? props.trackOnStyle : props.trackOffStyle,
   ]
 
   const thumbStyle = [
-    THUMB,
+    THUMB(theme),
     {
       transform: [{ translateX }],
     },

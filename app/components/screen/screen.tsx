@@ -3,12 +3,14 @@ import { KeyboardAvoidingView, Platform, ScrollView, StatusBar, View } from "rea
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { ScreenProps } from "./screen.props"
 import { isNonScrolling, offsets, presets } from "./screen.presets"
+import { useTheme } from "../../context/theme"
 
 const isIos = Platform.OS === "ios"
 
 function ScreenWithoutScrolling(props: ScreenProps) {
+  const {theme} = useTheme()
   const insets = useSafeAreaInsets()
-  const preset = presets.fixed
+  const preset = presets(theme).fixed
   const style = props.style || {}
   const backgroundStyle = props.backgroundColor ? { backgroundColor: props.backgroundColor } : {}
   const insetStyle = { paddingTop: props.unsafe ? 0 : insets.top }
@@ -26,8 +28,9 @@ function ScreenWithoutScrolling(props: ScreenProps) {
 }
 
 function ScreenWithScrolling(props: ScreenProps) {
+  const {theme} = useTheme()
   const insets = useSafeAreaInsets()
-  const preset = presets.scroll
+  const preset = presets(theme).scroll
   const style = props.style || {}
   const backgroundStyle = props.backgroundColor ? { backgroundColor: props.backgroundColor } : {}
   const insetStyle = { paddingTop: props.unsafe ? 0 : insets.top }
@@ -58,7 +61,8 @@ function ScreenWithScrolling(props: ScreenProps) {
  * @param props The screen props
  */
 export function Screen(props: ScreenProps) {
-  if (isNonScrolling(props.preset)) {
+  const {theme} = useTheme()
+  if (isNonScrolling(theme, props.preset)) {
     return <ScreenWithoutScrolling {...props} />
   } else {
     return <ScreenWithScrolling {...props} />

@@ -11,6 +11,7 @@ export const PokemonModel = types
     types: types.array(types.string),
     sprite: types.string,
     base_experience: types.number,
+    description: types.string,
   })
   .views((self) => ({})) // eslint-disable-line @typescript-eslint/no-unused-vars
   .actions((self) => ({})) // eslint-disable-line @typescript-eslint/no-unused-vars

@@ -9,11 +9,7 @@ import { palette } from "./palette"
  * If you have a specific use-case, like a spinner color.  It makes more sense to
  * put that in the <Spinner /> component.
  */
-export const color = {
-  /**
-   * The palette is available to use, but prefer using the name.
-   */
-  palette,
+export const themeLight = {
   /**
    * A helper for making something see-thru. Use sparingly as many layers of transparency
    * can cause older Android devices to slow down due to the excessive compositing required
@@ -23,7 +19,7 @@ export const color = {
   /**
    * The screen background.
    */
-  background: palette.white,
+  background: palette.darkGrey,
   /**
    * The main tinting color.
    */
@@ -61,4 +57,12 @@ export const color = {
    * white background
    */
   storybookTextColor: palette.black,
+
+  pokemonItemBg: palette.glass
+}
+
+export const themeDark = {
+  ...themeLight,
+  background: palette.black,
+  primary: palette.white,
 }
