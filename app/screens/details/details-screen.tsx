@@ -1,6 +1,6 @@
 import React from "react"
 import { observer } from "mobx-react-lite"
-import { Screen, Text, Header, Box, AutoImage as Image } from "../../components"
+import { Screen, Text, Header, Box, AutoImage as Image, Button } from "../../components"
 import { TStyle, useTheme, VStyle } from "../../context/theme"
 import { useNavigation } from "@react-navigation/native"
 import { useStores } from "../../models"
@@ -37,6 +37,16 @@ const DESCRIPTION: TStyle = ({color, spacing}) => ({
   textAlign: "center",
 })
 
+const FAVORITE: VStyle = ({spacing, color}) => ({
+  marginVertical: spacing[2],
+  marginHorizontal: spacing[2],
+  alignItems: "center",
+  borderColor: color.text,
+  borderWidth: 1,
+  borderRadius: spacing[2],
+  paddingHorizontal: spacing[2],
+  paddingVertical: spacing[1],
+})
 
 export const DetailsScreen = observer(function DetailsScreen() {
   // Pull in one of our MST stores
@@ -44,6 +54,8 @@ export const DetailsScreen = observer(function DetailsScreen() {
   const navigation = useNavigation()
   const goBack = () => navigation.goBack()
   const {theme} = useTheme()
+
+  const pokemon = rootStore.currentPokemon
 
   // Pull in navigation via hook
   // const navigation = useNavigation()
@@ -54,13 +66,16 @@ export const DetailsScreen = observer(function DetailsScreen() {
         leftIcon="back"
       />
       <Box style={TITLE(theme)}>
-        <Text preset="header" style={DETAIL_HEADER(theme)} text={rootStore.currentPokemon.name} />  
+        <Text preset="header" style={DETAIL_HEADER(theme)} text={pokemon.name} />  
       </Box>
       <Box style={IMAGE(theme)}>
-        <Image source={{uri: rootStore.currentPokemon.sprite}} style={{flex: 1, resizeMode: 'contain', height: undefined, width: undefined}} />
+        <Image source={{uri: pokemon.sprite}} style={{flex: 1, resizeMode: 'contain', height: undefined, width: undefined}} />
       </Box>
       <Box style={DETAIL_TABLE(theme)}>
-        <Text style={DESCRIPTION(theme)} text={rootStore.currentPokemon.description} />
+        <Text style={DESCRIPTION(theme)} text={pokemon.description} />
+      </Box>
+      <Box>
+        <Button style={FAVORITE(theme)} text={pokemon.favorite ? "Unfavorite" : "Favorite"} onPress={pokemon.toggleFavorite} />
       </Box>
     </Screen>
   )

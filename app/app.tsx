@@ -18,6 +18,7 @@ import * as storage from "./utils/storage"
 import { useBackButtonHandler, AppNavigator, canExit, useNavigationPersistence } from "./navigators"
 import { RootStore, RootStoreProvider, setupRootStore } from "./models"
 import { ToggleStorybook } from "../storybook/toggle-storybook"
+import { ThemeProvider } from "./context/theme"
 import { ErrorBoundary } from "./screens/error/error-boundary"
 
 // This puts screens in a native ViewController or Activity. If you want fully native
@@ -59,6 +60,7 @@ function App() {
   return (
     // <ToggleStorybook>
       <RootStoreProvider value={rootStore}>
+        <ThemeProvider>
         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
           <ErrorBoundary catchErrors={"always"}>
             <AppNavigator
@@ -67,6 +69,7 @@ function App() {
             />
           </ErrorBoundary>
         </SafeAreaProvider>
+        </ThemeProvider>
       </RootStoreProvider>
     // </ToggleStorybook>
   )

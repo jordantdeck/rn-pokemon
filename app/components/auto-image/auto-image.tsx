@@ -27,6 +27,8 @@ export function AutoImage(props: ImageProps) {
   const [imageSize, setImageSize] = useState({ width: 0, height: 0 })
 
   useLayoutEffect(() => {
+    let mounted = true;
+    if (mounted) {
     if (props.source?.uri) {
       RNImage.getSize(props.source.uri as any, (width, height) => {
         setImageSize({ width, height })
@@ -39,6 +41,10 @@ export function AutoImage(props: ImageProps) {
     } else {
       const { width, height } = RNImage.resolveAssetSource(props.source)
       setImageSize({ width, height })
+    }}
+
+    return () => {
+      mounted = false
     }
   }, [])
 

@@ -6,5 +6,5 @@ export type Theme = typeof theme;
 
 export const themes = {
   light: {...theme},
-  dark: {...theme, themeDark},
+  dark: {...theme, color: themeDark},
 };

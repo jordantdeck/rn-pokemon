@@ -19,7 +19,7 @@ export const themeLight = {
   /**
    * The screen background.
    */
-  background: palette.darkGrey,
+  background: palette.white,
   /**
    * The main tinting color.
    */
@@ -35,7 +35,7 @@ export const themeLight = {
   /**
    * The default color of text in many components.
    */
-  text: palette.white,
+  text: palette.darkGrey,
   /**
    * Secondary information.
    */
@@ -58,11 +58,13 @@ export const themeLight = {
    */
   storybookTextColor: palette.black,
 
-  pokemonItemBg: palette.glass
+  pokemonItemBg: palette.darkGlass
 }
 
 export const themeDark = {
   ...themeLight,
-  background: palette.black,
+  background: palette.darkGrey,
   primary: palette.white,
+  text: palette.white,
+  pokemonItemBg: palette.glass
 }

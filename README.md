@@ -1,10 +1,6 @@
-# Todo
+# POKEMON
 
-[] - update README
-
-## Important
-
-- install ignite generators `npx ignite-cli generate --help`
+This is a simple app to view and favorite first generation Pokemon.
 
 # Welcome to your new ignited app!
 

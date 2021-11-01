@@ -1,8 +1,24 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
 import { CharacterStoreModel } from "../character-store/character-store"
-import { PokemonModel } from "../pokemon/pokemon"
 const pokemonData = require("./pokemon-data.json")
 
+export const PokemonModel = types
+  .model("Pokemon")
+  .props({
+    id: types.identifier,
+    name: types.string,
+    types: types.array(types.string),
+    sprite: types.string,
+    base_experience: types.number,
+    description: types.string,
+    favorite: types.optional(types.boolean, false)
+  })
+  .views((self) => ({})) // eslint-disable-line @typescript-eslint/no-unused-vars
+  .actions((self) => ({
+    toggleFavorite() {
+      self.favorite = !self.favorite
+    },
+  }))
 /**
  * A RootStore model.
  */
@@ -17,14 +33,19 @@ export const RootStoreModel = types.model("RootStore").props({
   },
   setPokemon(pokemon) {
     self.currentPokemon = pokemon
-  }
+  },
+}))
+.views(self => ({
+  get pokemonByFavorite() {
+    return self.pokemon.slice().sort((a, b) => a.favorite ? -1 : 1)
+  },
 }))
 
 /**
  * The RootStore instance.
  */
 export interface RootStore extends Instance<typeof RootStoreModel> {}
-export interface Player extends Instance<typeof PokemonModel> {}
+export interface Pokemon extends Instance<typeof PokemonModel> {}
 
 /**
  * The data of a RootStore.

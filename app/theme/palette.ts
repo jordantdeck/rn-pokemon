@@ -9,5 +9,6 @@ export const palette = {
   darkGrey: "#232323",
   angry: "#dd3333",
   deepPurple: "#5D2555",
-  glass: "rgba(255, 255, 255, 0.15)"
+  glass: "rgba(255, 255, 255, 0.15)",
+  darkGlass: "rgba(35, 35, 35, 0.25 )"
 }

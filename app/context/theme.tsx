@@ -6,12 +6,12 @@ export type Theme = DefaultTheme
 export type TStyle = (theme: Theme) => TextStyle
 export type VStyle = (theme: Theme) => ViewStyle
 
-export const ThemeContext = React.createContext({ theme: themes.light, toggleTheme: () => null, themeName: 'light' });
+export const ThemeContext = React.createContext({ theme: themes.dark, toggleTheme: () => null, themeName: 'dark' });
 
 export const useTheme = () => React.useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-  const [themeName, setTheme] = React.useState<keyof typeof themes>('light');
+  const [themeName, setTheme] = React.useState<keyof typeof themes>('dark');
   const toggleTheme = () => setTheme(themeName === 'light' ? 'dark' : 'light');
 
   const theme = themes[themeName];
