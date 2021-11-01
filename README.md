@@ -2,6 +2,11 @@
 
 This is a simple app to view and favorite first generation Pokemon.
 
+## Todo
+
+[] - pull pokemon from PokeAPI
+[] - add drop down to select generation
+
 # Welcome to your new ignited app!
 
 [![CircleCI](https://circleci.com/gh/infinitered/ignite.svg?style=svg)](https://circleci.com/gh/infinitered/ignite)
