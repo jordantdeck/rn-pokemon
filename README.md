@@ -2,8 +2,6 @@
 
 This is a simple app to view and favorite first generation Pokemon.
 
-[pokemon app screenshot](/Users/jdeck/rn-apps/pokemon/screenshots/pokemonScreenShot.png)
-
 # Welcome to your new ignited app!
 
 [![CircleCI](https://circleci.com/gh/infinitered/ignite.svg?style=svg)](https://circleci.com/gh/infinitered/ignite)
